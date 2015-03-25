@@ -1,0 +1,2 @@
+# squarespace
+KYCK SquareSpace Template
