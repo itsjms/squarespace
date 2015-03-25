@@ -1,0 +1,32 @@
+{.section items}
+<!--MOBILE-->
+<nav id="mobile-navigation">
+  <span id="mobile-navigation-title">{.if website.siteTitle}{website.siteTitle}{.end}</span>
+  <span id="mobile-navigation-label"></span>
+  <ul>
+    {.repeated section @}
+      <li class="{.section active} active-link{.end}{.if folderActive} active-folder{.end}">
+        {.folder?}
+          <input type="checkbox" name="folder-toggle-{collection.id}" id="folder-toggle-{collection.id}" class="folder-toggle-box hidden" />
+          <label for="folder-toggle-{collection.id}" class="folder-toggle-label">{collection.navigationTitle}</label>
+          {.repeated section items}
+            {.collection?}
+                <a href="{collection.fullUrl}" class="{.section active} active-link{.end}">{collection.navigationTitle}</a>
+            {.end}
+            {.section externalLink}
+                <a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
+            {.end}
+          {.end}
+        {.or}
+          {.section collection}
+            <a href="{fullUrl}">{navigationTitle}</a>
+          {.end}
+          {.section externalLink}
+            <a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
+          {.end}
+        {.end}
+      </li>
+    {.end}
+  </ul>
+</nav>
+{.end}

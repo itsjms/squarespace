@@ -1,0 +1,12 @@
+{.section items}
+<nav id="main-navigation" class="main-nav" data-content-field="navigation">
+  <ul>
+  {.repeated section @}
+
+    {# this is condensed for a reason - it removed whitespace between links and allows better centering of delimiters }
+
+    {.folder?}<li aria-haspopup="true" class="{collection.typeLabel}-collection{.section active} active-link{.end} folder"><a href="#" onClick="return false;"{.if folderActive} class="active-folder"{.end}>{collection.navigationTitle}</a><span class="delimiter">/</span><div class="subnav"><ul>{.repeated section items}{.collection?}<li class="{collection.typeLabel}-collection{.section active} active-link{.end}"><a href="{collection.fullUrl}">{collection.navigationTitle}</a></li>{.end}{.section externalLink}<li class="external-link"><a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a></li>{.end}{.end}</ul></div></li>{.or}{.if collection}<li class="{collection.typeLabel}-collection{.section active} active-link{.end}"><a href="{collection.fullUrl}">{collection.navigationTitle}</a><span class="delimiter">/</span></li>{.end}{.section externalLink}<li class="external-link"><a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a><span class="delimiter">/</span></li>{.end}{.end}
+  {.end}
+  </ul>
+</nav>
+{.end}

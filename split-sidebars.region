@@ -1,0 +1,68 @@
+
+
+			<div id="page-body-wrapper" class="split-sidebars">
+				<div id="page-body">
+
+					<div id="content-wrapper">
+						<div id="content">
+
+							<div id="page-body-header" class="extra-wrapper">
+								<squarespace:block-field id="page-header-{collection.id}" description="Page Header" columns="12" label="{collection.title} Header Content" />
+							</div>
+
+					    <!-- // CATEGORY NAV -->
+					    {.section collection}{.equal? typeName "products"}{.section categories}
+					    <div id="categoryNav" role="navigation">
+					      <input type="checkbox" name="category-nav-toggle" id="categoryNavToggle" class="category-nav-toggle hidden" />
+					      <label for="categoryNavToggle" class="category-nav-toggle-label" onclick></label>
+					      <nav class="category-nav">
+					        <ul class="nav category-nav-links">
+					          <li class="filter"><a>Filter{.if categoryFilter}: {categoryFilter}{.end}</a></li>
+					          <li{.if categoryFilter}{.or} class="active-link all"{.end}><a href="{fullUrl}">All</a><span class="delimiter">/</span></li>
+					        {.repeated section @}
+					          <li{.equal? categoryFilter @} class="active-link"{.end}><a href="{fullUrl}?category={@|url-encode}">{@}</a><span class="delimiter">/</span></li>
+					        {.end}
+					        </ul>
+					      </nav>
+					    </div>
+					    {.end}{.end}{.end}
+
+							<div class="main-content" data-content-field="main-content" data-collection-id="{collection.id}" data-edit-main-image="Page Banner">
+								{squarespace.main-content}
+							</div>
+
+							<div id="page-body-footer" class="extra-wrapper">
+								<squarespace:block-field id="page-footer-{collection.id}" description="Page Footer" columns="12" label="{collection.title} Footer Content" />
+							</div>
+
+						</div>
+					</div> <!-- content-wrapper -->
+
+					<div id="sidebar-wrapper">
+
+						<div id="sidebar-one-wrapper" class="vertical-navigation-bar-wrapper">
+							<div id="sidebar-one" class="vertical-navigation-bar">
+								<squarespace:navigation navigationId="mainNav" template="main-navigation" />
+								{.section website}
+								<div class="site-info">
+									{.if siteTitle}<h3 class="site-title">{siteTitle}</h3>{.end}
+							    {.if siteDescription}<div class="site-description">{siteDescription}</div>{.end}
+							  </div>
+							  {.end}
+								<squarespace:block-field id="sidebar-one-blocks" label="Sidebar One Content" />
+							</div>
+						</div><!-- sidebar-one-wrapper -->
+
+						<div id="sidebar-two-wrapper" class="vertical-navigation-bar-wrapper">
+							<div id="sidebar-two" class="vertical-navigation-bar">
+								<squarespace:block-field id="sidebar-two-blocks" label="Sidebar Two Content" />
+							</div>
+						</div><!-- sidebar-two-wrapper -->
+
+					</div><!-- sidebar-wrapper -->
+
+					<div class="clearer" id="body-clearer"></div>
+
+	      </div>
+	    </div> <!-- page-body-wrapper -->
+

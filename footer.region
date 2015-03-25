@@ -1,0 +1,21 @@
+		    <div id="page-footer-wrapper">
+		      <div id="page-footer">
+		        {.section website}
+		          {.if socialAccounts}
+		            <div id="sqs-social" data-content-field="connected-accounts">
+		              {.repeated section socialAccounts}{.if profileUrl}<a href="{profileUrl}" target="_blank" title="{screenname}" class="social-{serviceName}"></a>{.end}{.end}
+		            </div>
+		          {.end}
+		        {.end}
+		        <squarespace:block-field id="footer-blocks" columns="12" label="Footer Content" />
+		      </div>
+		    </div><!-- page-footer-wrapper -->
+		  
+
+		  </div>
+		</div> <!-- canvas-wrapper -->
+
+		{squarespace-footers}
+
+	</body>
+</html>
